@@ -1,3 +1,7 @@
+# Isso foi meu ctrl c + v do teu codigo, tentei rodar ele, mas n consegui, fiz umas alteraçoes, e continuei sem consegior( kk)
+# mas to fazendo outro codigo do zero, pra tentar ser util, estao nos outros arquivos !!
+
+
 class No:
     def __init__(self, dado = None, proximo = None):
         self._dado = dado
