@@ -22,18 +22,48 @@ class Pilha:
     def isEmpty(self):
         if self._topo.get_dado() == None:
             return True
+        else: return False
+    def add(self, elem):
+        elem.set_proximo(self._topo)
+        self._topo = elem
+    def remove(self):
+        self._topo = self._topo.get_proximo()
+   
 
+    
 class Fila: 
     def __init__ ( self, head = No()):
         self._head = head
     def isEmpty(self):
         if self._head.get_dado() == None:
             return True
-            
+        else: return False
+    def add(self, elem):
+        elem.set_proximo(self._head)
+        self._head = elem
+    def remove(self):
+        self._head = self._head.get_proximo()
+    
+
+
+
+
+
 fil = Fila()
 pil = Pilha()
-print (fil.isEmpty())
 print (pil.isEmpty())
+print (fil.isEmpty())
+a= No(1)
+pil.add(a)
+fil.add(a)
+print (pil.isEmpty())
+print (fil.isEmpty())
+pil.remove()
+fil.remove()
+print (pil.isEmpty()) 
+print (fil.isEmpty())
+
+
         
 
 
