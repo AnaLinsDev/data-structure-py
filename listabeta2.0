@@ -63,6 +63,16 @@ class Lista:
         while(p!=None):
             print(p)
             p = p.get_proximo()
+    def ordenar(self):
+        lis = []
+        p = self._head
+        i = 0
+        while p != None:
+            lis.append(self.show(i).get_dado())
+            p = p.get_proximo()
+            i += 1
+        lis.sort()
+        print(lis)
 p = No(3)
 q = No(2)
 lista = Lista(p)
@@ -74,3 +84,4 @@ lista.printar_all()
 lista.remove(0)
 lista.printar_all()
 print(lista.vazio())
+lista.ordenar()
