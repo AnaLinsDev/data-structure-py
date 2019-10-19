@@ -1,5 +1,7 @@
+from Cdados import Dadu 
+
 class No:
-    def __init__(self, dado = None, proximo = None):
+    def __init__(self, dado = Dadu(), proximo = None):
         self._dado = dado
         self._proximo = proximo
     def get_dado(self):

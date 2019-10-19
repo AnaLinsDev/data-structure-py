@@ -1,4 +1,5 @@
 from Node import No
+from Cdados import Dadu 
 
 class Lista:
     def __init__(self, head = None):
@@ -68,7 +69,16 @@ class Lista:
             p = p.get_proximo()
         return p
 
+mov0 = Dadu('filme0', 2000 )
+no = No(mov0)
+print(no.get_dado().get_filmeeano())
 
+
+
+
+
+
+'''
 lista = Lista()
 lista.insert(0, No(0))
 lista.insert(1, No(1))
@@ -77,3 +87,4 @@ lista.remove(5)
 lista.remove(1)
 lista.printar_all()
 print(f'tamanho: {lista.lenght()}')
+'''
