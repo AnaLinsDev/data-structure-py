@@ -2,9 +2,10 @@ from Node import No
 from Cdados import Dadu 
 
 class Lista:
-    def __init__(self, head = None):
+    def __init__(self, head = None, lis=[]):
         self._head = head
         self._size = 0
+
     def mostrar(self, index):
         p = self._head
         for i in range(index):
@@ -24,10 +25,10 @@ class Lista:
         return count
     def insert(self, index, elem): #Inserir
             if index == 0:
-                no = No(elem)
+                no = No(elem)   #aqui esta tipo : No(No('filme0', 2000))
                 no.set_proximo(self._head)
                 self._head = no
-            if index > self.lenght():
+            if index > self.length():
                 print ( ' indice invalido ')
             else:
                 no = No(elem)
@@ -40,7 +41,7 @@ class Lista:
     def remove(self,index): #Remover um item no indice
         if index == 0:
             self._head = self._head.get_proximo()
-        if index > self.lenght():
+        if index > self.length():
             print ( ' indice invalido ')
         else:
             p = self._head
@@ -51,7 +52,7 @@ class Lista:
             p.set_proximo(q.get_proximo())
             q.set_proximo(p)
 
-    def lenght(self):
+    def length(self):
         p = self._head
         count = 0
         while (p!= None):
@@ -68,10 +69,39 @@ class Lista:
         for i in range(index):
             p = p.get_proximo()
         return p
+    def ordenar(self):
+        lis =[]
+        p = self._head     
+        i = 0
+        while p != None:
+            lis.append(self.show(i).get_dado().get_ano())
+            p = p.get_proximo()
+            i += 1
+        lis.sort()
+        print(lis)
 
-mov0 = Dadu('filme0', 2000 )
-no = No(mov0)
-print(no.get_dado().get_filmeeano())
+mov0 = Dadu('filme0', 2000)
+no0 = mov0 
+mov2 = Dadu('filme2', 2002)
+no1 = mov2 
+mov1 = Dadu('filme1', 2001)
+no2 = mov1 
+
+lista =Lista()
+lista.insert(0, no0)
+lista.insert(0, no1)
+lista.insert(0, no2)
+print(lista.length())
+lista.ordenar()
+
+
+
+
+
+
+
+
+
 
 
 
