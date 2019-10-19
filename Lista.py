@@ -107,7 +107,7 @@ lista.insert(0, no0)
 lista.insert(0, no1)
 lista.insert(0, no2)
 print(lista.length())
-lista.ordenar()
+lista.ordenar("+")
 
 
 
