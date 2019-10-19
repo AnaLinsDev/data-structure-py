@@ -24,11 +24,6 @@ class Pilha:
         return count
     def showtopo(self):
         return self._topo.get_dado()
-    def printar_all(self):
-        p = self._topo
-        while(p != None):
-            print(p)
-            p = p.get_proximo()
 
 pil = Pilha()
 r = input(""" 
