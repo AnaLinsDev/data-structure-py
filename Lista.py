@@ -69,16 +69,31 @@ class Lista:
         for i in range(index):
             p = p.get_proximo()
         return p
-    def ordenar(self):
-        lis =[]
-        p = self._head     
-        i = 0
-        while p != None:
-            lis.append(self.show(i).get_dado().get_ano())
-            p = p.get_proximo()
-            i += 1
-        lis.sort()
-        print(lis)
+    def ordenar(self,param):
+        if (param == "+"):     #Crescente
+            lis =[]
+            p = self._head
+            i = 0
+            while p!= None:
+                if (self.show(i).get_dado().get_ano() not in lis):
+                    lis.append(self.show(i).get_dado().get_ano())
+                p = p.get_proximo()
+                i += 1
+            lis.sort()
+            print(lis)
+        elif (param == "-"):    #Decrescente
+            lis = []
+            p = self._head
+            i = 0
+            while p.get_proximo() != None:
+                if (self.show(i).get_dado().get_ano() not in lis):
+                    lis.append(self.show(i).get_dado().get_ano())
+                p = p.get_proximo()
+                i += 1
+            lis.sort(reverse=True)
+            print(lis)
+        else:
+            print("Parâmetro inválido!")
 
 mov0 = Dadu('filme0', 2000)
 no0 = mov0 
