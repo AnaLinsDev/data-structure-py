@@ -40,7 +40,7 @@ r = input("""
 5) Mostrar o topo
 Digite sua opção: 
 """)
-while r != 0 == True:
+while (r != 0) == True:
     if r == "1":
         a = input("Qual elemento você quer adicionar: ")
         pil.add(No(a))
