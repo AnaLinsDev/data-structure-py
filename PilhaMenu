@@ -23,7 +23,7 @@ class Pilha:
             p = p.get_proximo()
         return count
     def showtopo(self):
-        print(self._topo.get_dado())
+        return self._topo.get_dado()
     def printar_all(self):
         p = self._topo
         while(p != None):
@@ -62,6 +62,7 @@ Digite sua opção:
     elif r == "2":
         print("...")
         time.sleep(1)
+        pil.remove()
         print("O elemento da fila foi removido!")
         time.sleep(1)
         r = input("""
@@ -96,7 +97,7 @@ Digite sua opção: """)
 5) Mostrar o topo
 Digite sua opção:""")
     elif r == "5":
-        print("O tamanho do topo é: ",pil.showtopo())
+        print("O topo é : ",pil.showtopo())
         time.sleep((1))
         r = input(""" 
 0) sair do Menu
@@ -106,5 +107,3 @@ Digite sua opção:""")
 4) Mostrar tamanho da Pilha
 5) Mostrar o topo
 Digite sua opção: """)
-
-pil.printar_all()
