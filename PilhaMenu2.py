@@ -30,7 +30,7 @@ class Pilha:
             print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
 
-
+pil = Pilha()
 r = input(""" 
 0) sair do Menu
 1) adicionar
@@ -45,7 +45,6 @@ if r == '0' :
     
 
 while r != '0':
-    pil = Pilha()
     if r == "1":
         a = input("Qual filme você quer adicionar : ")
         b =input("Qual  ano  você quer adicionar : ")
