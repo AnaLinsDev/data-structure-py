@@ -62,7 +62,7 @@ class Lista:
     def printar_all(self):
         p = self._head
         while(p != None):
-            print(p)
+            print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
     def show(self, index):
         p = self._head
