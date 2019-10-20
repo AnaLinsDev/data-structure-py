@@ -1,32 +1,38 @@
+  
 from Node import No
-from Cdados import Dadu 
+from Cdados import Dadu
 
 class Lista:
-    def __init__(self, head = None, lis=[]):
+    def __init__(self, head = None):  #Construtor
         self._head = head
         self._size = 0
 
-    def mostrar(self, index):
+    def mostrar(self, index):  #Mostra de acordo com o index
         p = self._head
         for i in range(index):
             if p.get_proximo() != None:
                 p = p.get_proximo()
-        return print(p)
+        return print(p.get_dado().get_filmeeano())
     def isEmpty(self): #Vazia
         if self._head == None:
             return True
         else: return False
     def size(self): #Tamanho
+        lis = []
         p = self._head
+        i = 0
         count = 0
-        while p.get_proximo() != None:
-            count = count + 1
+        while p != None:
+            if (self.show(i).get_dado().get_ano() not in lis):
+                lis.append(self.show(i).get_dado().get_ano())
+                count = count + 1
             p = p.get_proximo()
+            i += 1
         return count
     def insert(self, index, elem): #Inserir
-            if index == 0:
-                no = No(elem)   #aqui esta tipo : No(No('filme0', 2000))
-                no.set_proximo(self._head)
+            if self._head == None:
+                no = No(elem)
+                no.set_proximo(None)
                 self._head = no
             if index > self.length():
                 print ( ' indice invalido ')
@@ -41,7 +47,7 @@ class Lista:
     def remove(self,index): #Remover um item no indice
         if index == 0:
             self._head = self._head.get_proximo()
-        if index > self.length():
+        if index > self.size():
             print ( ' indice invalido ')
         else:
             p = self._head
@@ -52,16 +58,9 @@ class Lista:
             p.set_proximo(q.get_proximo())
             q.set_proximo(p)
 
-    def length(self):
-        p = self._head
-        count = 0
-        while (p!= None):
-            count += 1
-            p = p.get_proximo()
-        return count
     def printar_all(self):
         p = self._head
-        while(p != None):
+        while(p.get_proximo() != None):
             print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
     def show(self, index):
@@ -94,42 +93,31 @@ class Lista:
             print(lis)
         else:
             print("Parâmetro inválido!")
-
+    def length(self):
+        p =self._head
+        count = 0
+        while p.get_proximo() != None:
+            p =p.get_proximo()
+            count+=1
+        return count
+print("IFPB - Instituto Federal da Paraiba ")
+print("-=-"*20)
 mov0 = Dadu('filme0', 2000)
-no0 = mov0 
+no0 = mov0
 mov2 = Dadu('filme2', 2002)
-no1 = mov2 
+no1 = mov2
 mov1 = Dadu('filme1', 2001)
-no2 = mov1 
-
+no2 = mov1
 lista =Lista()
 lista.insert(0, no0)
 lista.insert(0, no1)
 lista.insert(0, no2)
-print(lista.length())
-lista.ordenar("+")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-lista = Lista()
-lista.insert(0, No(0))
-lista.insert(1, No(1))
-lista.insert(4, No(2))
-lista.remove(5)
-lista.remove(1)
 lista.printar_all()
-print(f'tamanho: {lista.lenght()}')
-'''
+print(lista.size())
+print(lista.length())
+lista.mostrar(0)
+lista.mostrar(1)
+lista.mostrar(2)
+
+
+
