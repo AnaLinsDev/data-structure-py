@@ -41,7 +41,7 @@ r = input("""
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção: 
 """)
 while (r != '0') :
@@ -61,7 +61,7 @@ while (r != '0') :
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção:
 """)
     elif r == "2":
@@ -76,7 +76,7 @@ Digite sua opção:
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção:     
 """)
     elif r =="3":
@@ -88,7 +88,7 @@ Digite sua opção:
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção: """)
     elif r == "4":
         print("O tamanho da pilha é: ",fil.sizef())
@@ -99,7 +99,7 @@ Digite sua opção: """)
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção:""")
     elif r == "5":
         print("O head é : ",fil.showhead())
@@ -110,5 +110,5 @@ Digite sua opção:""")
 2) remover
 3) Mostrar se está vazia
 4) Mostrar tamanho da Fila
-5) Mostrar o topo
+5) Mostrar o head
 Digite sua opção: """)
