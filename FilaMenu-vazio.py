@@ -17,6 +17,7 @@ class Fila:
     def remove(self):
         p = self._head
         if self.sizef() == 1 :
+            self._head.set_dado(None)
             p.set_dado(None)
             print('Lista vazia')
         elif p.get_proximo() != None:
