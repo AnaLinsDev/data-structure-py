@@ -1,0 +1,12 @@
+def ordenar(self):
+        p = self._head
+        q = p.get_proximo()
+        while p.get_proximo() != None:
+            p = p.get_proximo()
+            while q.get_proximo() != None:
+                if p.get_dado() > q.get_proximo():
+                    p.set_proximo(q.get_proximo)
+                    q.set_proximo(p.get_dado)
+                if p.get_dado() < q.get_proximo():
+                    q.set_proximo(p.get_proximo)
+                    p.set_proximo(q.get_dado)
