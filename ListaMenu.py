@@ -13,7 +13,7 @@ class Lista:
         for i in range(index):
             if p.get_proximo() != None:
                 p = p.get_proximo()
-        return print(p.get_dado().get_filmeeano())
+        return print(p.get_dado().get_dado().get_filmeeano())
     def isEmpty(self): #Vazia
         if self._head == None:
             print(True)
@@ -52,14 +52,14 @@ class Lista:
 
     def printar_all(self):
         p = self._head
-        while(p.get_proximo() != None):
+        while(p != None):
             print(p.get_dado().get_dado().get_filmeeano())
             p = p.get_proximo()
     def show(self, index):
         p = self._head
         for i in range(index):
             p = p.get_proximo()
-        return p
+        return p.get_dado().get_dado().get_filmeeano()
     def ordenar(self,param):
         if (param == "+"):     #Crescente
             lis =[]
@@ -181,8 +181,17 @@ Digite sua opção:""")
 6) Mostrar por indice
 Digite sua opção:""")
     elif r == "6":
-        i = ('Qual indice do elemento que deseja ver ?')
-        print(f'no indice {i}, o elemento é {lis.mostrar(i)}')
+        i = int(input('Qual indice do elemento que deseja ver ?'))
+        print(f'no indice {i}, o elemento é {lis.show(i)}')
+        r = input(""" 
+0) sair do Menu
+1) adicionar
+2) remover
+3) Mostrar se está vazia
+4) Mostrar tamanho da Fila
+5) Mostrar tudo
+6) Mostrar por indice
+Digite sua opção:""")
 
 
 
