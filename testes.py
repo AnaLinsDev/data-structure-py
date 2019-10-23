@@ -76,18 +76,19 @@ class Lista:
         return count
 print("IFPB - Instituto Federal da Paraiba ")
 print("-=-"*20)
-mov0 = Dadu('PRIMEIRO', 2000)
+mov0 = Dadu('PRIMEIRO', 1111)
 no0 = mov0
-mov2 = Dadu('TERCEIRO', 2002)
-no2 = mov2
-mov1 = Dadu('SEGUNDO', 2001)
+mov1 = Dadu('SEGUNDO', 2222)
 no1 = mov1
+mov2 = Dadu('TERCEIRO', 3333)
+no2 = mov2
+
 lista =Lista()
 lista.insert(0, no0)
-lista.insert(0, no2)
 lista.insert(0, no1)
+lista.insert(0, no2)
 lista.printar_all()
 print(lista.length())
-#lista.ordenar()
+lista.ordenar()
 lista.printar_all()
 
