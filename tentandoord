@@ -1,12 +1,15 @@
-def ordenar(self):
-        p = self._head
-        q = p.get_proximo()
-        while p.get_proximo() != None:
-            p = p.get_proximo()
+    def ordenar(self):
+        if self._head == None:
+            print("Não da para ordenar!")
+        while True:   #Crescente!
+            p = self._head
+            q = self._head.get_proximo()
             while q.get_proximo() != None:
-                if p.get_dado() > q.get_proximo():
-                    p.set_proximo(q.get_proximo)
-                    q.set_proximo(p.get_dado)
-                if p.get_dado() < q.get_proximo():
-                    q.set_proximo(p.get_proximo)
-                    p.set_proximo(q.get_dado)
+                if p.get_dado().get_filmeeano() > q.get_dado().get_filmeeano():
+                    aux = q.get_dado
+                    p.set_dado(q.get_dado())
+                    q.set_dado(aux)
+                    break
+                p = q
+                q = q.get_proximo()
+            return self.printar_all()
