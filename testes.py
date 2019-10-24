@@ -48,25 +48,28 @@ class Lista:
     def printar_all(self):
         p = self._head
         while (p.get_proximo() != None):
-            print(p.get_dado().get_filmeeano())
+            print(p.get_dado().get_dado().get_filmeeano())
             p = p.get_proximo()
     def show(self, index):
         p = self._head
         for i in range(index):
             p = p.get_proximo()
         return p
+
     def ordenar(self):
-        q = self._head
-        p = q.get_proximo()
-        while p.get_proximo() != None:
+        p = self._head
+        q = p.get_proximo()
+        while p.get_proximo() != None:        
             while q.get_proximo() != None:
-                if p.get_dado().get_ano() > q.get_proximo().get_dado().get_ano():
-                    p.set_proximo(q.get_proximo)
-                    q.set_proximo(p.get_dado)
-                if p.get_dado().get_ano() < q.get_proximo().get_dado().get_ano():
-                    q.set_proximo(p.get_proximo)
-                    p.set_proximo(q.get_dado)
-        p = p.get_proximo()
+                if p.get_dado().get_dado().get_ano() > q.get_dado().get_dado().get_ano():
+                    p.set_proximo(q.get_proximo())
+                    q.set_proximo(p.get_dado())
+                if p.get_dado().get_dado().get_ano() < q.get_dado().get_dado().get_ano():
+                    q.set_proximo(p.get_proximo())
+                    p.set_proximo(q.get_dado())
+                q = q.get_proximo()
+            p = p.get_proximo()
+
     def length(self):
         p =self._head
         count = 0
@@ -77,16 +80,16 @@ class Lista:
 print("IFPB - Instituto Federal da Paraiba ")
 print("-=-"*20)
 mov0 = Dadu('PRIMEIRO', 1111)
-no0 = mov0
+no0 = No(mov0)
 mov1 = Dadu('SEGUNDO', 2222)
-no1 = mov1
+no1 = No(mov1)
 mov2 = Dadu('TERCEIRO', 3333)
-no2 = mov2
+no2 = No(mov2)
 
 lista =Lista()
-lista.insert(0, no0)
-lista.insert(0, no1)
 lista.insert(0, no2)
+lista.insert(1, no1)
+lista.insert(2, no0)
 lista.printar_all()
 print(lista.length())
 lista.ordenar()
