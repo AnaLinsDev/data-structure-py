@@ -1,5 +1,7 @@
+
 from Node import No
 from Cdados import Dadu
+import time
 
 class Lista:
     def __init__(self, head = None):  #Construtor
@@ -14,8 +16,8 @@ class Lista:
         return print(p.get_dado().get_filmeeano())
     def isEmpty(self): #Vazia
         if self._head == None:
-            return True
-        else: return False
+            print(True)
+        else: print(False)
     def insert(self, index, elem): #Inserir
             if self._head == None:
                 no = No(elem)
@@ -32,9 +34,12 @@ class Lista:
                 no.set_proximo(q.get_proximo())
                 q.set_proximo(no)
     def remove(self,index): #Remover um item no indice
+        if self.length() == 1 :
+            self._head.set_dado(None)
+            print('Lista vazia')
         if index == 0:
             self._head = self._head.get_proximo()
-        if index > self.size():
+        if index > self.length():
             print ( ' indice invalido ')
         else:
             p = self._head
@@ -44,31 +49,23 @@ class Lista:
                 p = p.get_proximo()
             p.set_proximo(q.get_proximo())
             q.set_proximo(p)
-
-    def printar_all(self):
-        p = self._head
-        while (p.get_proximo() != None):
-            print(p.get_dado().get_dado().get_filmeeano())
-            p = p.get_proximo()
-    def show(self, index):
-        p = self._head
-        for i in range(index):
-            p = p.get_proximo()
-        return p
-
     def ordenar(self):
-        p = self._head
-        q = p.get_proximo()
-        while p.get_proximo() != None:        
-            while q.get_proximo() != None:
-                if p.get_dado().get_dado().get_ano() > q.get_dado().get_dado().get_ano():
-                    p.set_proximo(q.get_proximo())
-                    q.set_proximo(p.get_dado())
-                if p.get_dado().get_dado().get_ano() < q.get_dado().get_dado().get_ano():
-                    q.set_proximo(p.get_proximo())
-                    p.set_proximo(q.get_dado())
-                q = q.get_proximo()
-            p = p.get_proximo()
+        if self._head == None:
+            print("Não da para ordenar!")
+        while True:   #Crescente!
+            p = self._head
+            q = self._head.get_proximo()
+            while p != None:
+                while q != None:
+                    if p.get_dado().get_ano() > q.get_dado().get_ano():
+                        aux = p.get_dado()
+                        p.set_dado(q.get_dado())
+                        q.set_dado(aux)
+                        break
+                    p = q
+                    q = p.get_proximo()
+                p = p.get_proximo()
+            return self.printar_all()
 
     def length(self):
         p =self._head
@@ -77,21 +74,38 @@ class Lista:
             p =p.get_proximo()
             count+=1
         return count
-print("IFPB - Instituto Federal da Paraiba ")
-print("-=-"*20)
-mov0 = Dadu('PRIMEIRO', 1111)
-no0 = No(mov0)
-mov1 = Dadu('SEGUNDO', 2222)
-no1 = No(mov1)
-mov2 = Dadu('TERCEIRO', 3333)
-no2 = No(mov2)
-
+    def printar_all(self):
+        p = self._head
+        while(p.get_proximo() != None):
+            print(p.get_dado().get_filmeeano())
+            p = p.get_proximo()
+mov0 = Dadu('filme0', 1000)
+no0 = mov0
+mov1 = Dadu('filme1', 1111)
+no1 = mov1
+mov2 = Dadu('filme2', 2222)
+no2 = mov2
+mov3 = Dadu('filme3', 3333)
+no3 = mov3
 lista =Lista()
-lista.insert(0, no2)
-lista.insert(1, no1)
-lista.insert(2, no0)
-lista.printar_all()
-print(lista.length())
+lista.insert(0, no3)
+lista.insert(1, no0)
+lista.insert(2, no1)
+lista.insert(3, no2)
 lista.ordenar()
-lista.printar_all()
 
+'''    def ordenar(self):
+        p = self._head
+        q = p.get_proximo()
+        z = p
+        while p.get_proximo() != None:
+            while q != None:
+                if z.get_dado().get_ano() > q.get_dado().get_ano():
+                    z.set_proximo(q.get_proximo())
+                    q.set_proximo(z.get_dado())
+                    q = q.get_proximo().get_proximo()
+                else:
+                    z = z.get_proximo()
+                    q = q.get_proximo()
+            p = p.get_proximo()
+        return self.printar_all()'''
