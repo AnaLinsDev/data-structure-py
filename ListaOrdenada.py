@@ -55,8 +55,8 @@ class Lista:
         else:
             ordem = False
             p = self._head
-            q = p.get_proximo()
             while not ordem:
+                q = p.get_proximo()
                 ordem = True
                 while q.get_proximo() != None: #Se o get proximo for None O whuile de cima será True.
                     if p.get_dado().get_ano() > q.get_dado().get_ano():
