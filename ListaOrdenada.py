@@ -51,7 +51,7 @@ class Lista:
 
     def ordenar(self): #Ordena de forma crescente!
         if self._head == None:
-            print("Não dá para Ordenar!"
+            print("Não dá para Ordenar!")
         else:
             ordem = False
             p = self._head
@@ -78,3 +78,13 @@ class Lista:
         while (p.get_proximo() != None):
             print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
+
+mov0 = Dadu('filme0', 2000)
+no0 = mov0
+mov2 = Dadu('filme2', 2005)
+no1 = mov2
+mov1 = Dadu('filme1', 2001)
+no2 = mov1
+lista =Lista()
+lista.ordenar()
+lista.printar_all()
