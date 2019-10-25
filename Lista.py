@@ -86,90 +86,22 @@ class Lista:
 
 mov0 = Dadu('filme0', 1000)
 no0 = mov0
-mov1 = Dadu('filme1', 1111)
+mov1 = Dadu('filme1', 1001)
 no1 = mov1
-mov2 = Dadu('filme2', 2222)
+mov2 = Dadu('filme2', 1002)
 no2 = mov2
-mov3 = Dadu('filme3', 3333)
+mov3 = Dadu('filme3', 1003)
 no3 = mov3
-mov4 = Dadu('filme4', 4444)
+mov4 = Dadu('filme4', 1004)
 no4 = mov4
 lista =Lista()
-lista.insert(0, no1)
+lista.insert(0, no4)
 lista.insert(1, no0)
-lista.insert(2, no4)
-lista.insert(3, no2)
-lista.insert(4, no3)
+lista.insert(2, no3)
+lista.insert(3, no1)
+lista.insert(4, no2)
+lista.printar_all()
+print('\o/' * 15)
 lista.ordenar()
 lista.printar_all()
 
-
-'''    def ordenar(self):
-        p = self._head
-        q = p.get_proximo()
-        z = p
-        while p.get_proximo() != None:
-            while q != None:
-                if z.get_dado().get_ano() > q.get_dado().get_ano():
-                    z.set_proximo(q.get_proximo())
-                    q.set_proximo(z.get_dado())
-                    q = q.get_proximo().get_proximo()
-                else:
-                    z = z.get_proximo()
-                    q = q.get_proximo()
-            p = p.get_proximo()
-        return self.printar_all()
-        
-        
-        
-            def ordenar(self):
-        p = self._head
-        q = p.get_proximo()
-        for i in range(self.length()):
-            for j in range(1, self.length() -i):
-                if self.mostrarano(j) < self.mostrarano(j-1):
-                    if p.get_dado().get_ano() == self.mostrarano(j) and q.get_dado().get_ano() == self.mostrarano(j-1) :
-                        aux = p.get_dado()
-                        p.set_dado(q.get_dado())
-                        q.get_dado(aux)
-                p = p.get_proximo()
-                q = q.get_proximo()        
-        self.printar_all()
-
-
-        
-            def ordenar(self):
-        if self._head == None:
-            print("Não da para ordenar!")
-        else:
-            p = self._head
-            q = self._head.get_proximo()
-            while p.get_proximo() != None:
-                while q.get_proximo() != None:
-                    if p.get_dado().get_ano() > q.get_dado().get_ano():
-                        aux = q.get_dado().get_ano()
-                        q.get_dado().set_ano(p.get_dado().get_ano())
-                        p.get_dado().set_ano(aux)
-                    q = q.get_proximo()
-                p = p.get_proximo()
-        self.printar_all()
-        
-        
-            def ordenar(self):
-        if self._head == None:
-            print("Não da para ordenar!")
-        else:
-            p = self._head
-            z = self._head
-            q = p.get_proximo()
-            while z != None:
-                while p != None and q.get_proximo() != None:
-                    if p.get_dado().get_ano() > q.get_dado().get_ano():
-                        aux = p.get_dado()
-                        p.set_dado(q.get_dado())
-                        q.set_dado(aux)
-                    p = p.get_proximo()
-                    q = q.get_proximo()
-                z = z.get_proximo()
-        self.printar_all()
-'''
