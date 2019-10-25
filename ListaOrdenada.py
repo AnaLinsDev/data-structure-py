@@ -1,4 +1,3 @@
-
 from Node import No
 from Cdados import Dadu
 import time
@@ -49,63 +48,30 @@ class Lista:
                 p = p.get_proximo()
             p.set_proximo(q.get_proximo())
             q.set_proximo(p)
-    def ordenar(self):
-        if self._head == None:
-            print("Não da para ordenar!")
-        while True:   #Crescente!
-            p = self._head
-            q = self._head.get_proximo()
-            while p != None:
-                while q != None:
-                    if p.get_dado().get_ano() > q.get_dado().get_ano():
-                        aux = p.get_dado()
-                        p.set_dado(q.get_dado())
-                        q.set_dado(aux)
-                        break
-                    p = q
-                    q = p.get_proximo()
-                p = p.get_proximo()
-            return self.printar_all()
 
-    def length(self):
+    def ordenar(self): #Ordena de forma crescente!
+        ordem = False
+        p = self._head
+        q = p.get_proximo()
+        while not ordem:
+            ordem = True
+            while q.get_proximo() != None: #Se o get proximo for None O whuile de cima será True.
+                if p.get_dado().get_ano() > q.get_dado().get_ano():
+                    ordem = False #Isso vai fazer que volte para o outro while quando acabar esse
+                    aux = p.get_dado()
+                    p.set_dado(q.get_dado())
+                    q.set_dado(aux)
+                p = q
+                q = q.get_proximo()
+    def length(self): #Ver o tamanho
         p =self._head
         count = 0
         while p.get_proximo() != None:
             p =p.get_proximo()
             count+=1
         return count
-    def printar_all(self):
+    def printar_all(self): #Printa todos os elementos
         p = self._head
-        while(p.get_proximo() != None):
+        while (p.get_proximo() != None):
             print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
-mov0 = Dadu('filme0', 1000)
-no0 = mov0
-mov1 = Dadu('filme1', 1111)
-no1 = mov1
-mov2 = Dadu('filme2', 2222)
-no2 = mov2
-mov3 = Dadu('filme3', 3333)
-no3 = mov3
-lista =Lista()
-lista.insert(0, no3)
-lista.insert(1, no0)
-lista.insert(2, no1)
-lista.insert(3, no2)
-lista.ordenar()
-
-'''    def ordenar(self):
-        p = self._head
-        q = p.get_proximo()
-        z = p
-        while p.get_proximo() != None:
-            while q != None:
-                if z.get_dado().get_ano() > q.get_dado().get_ano():
-                    z.set_proximo(q.get_proximo())
-                    q.set_proximo(z.get_dado())
-                    q = q.get_proximo().get_proximo()
-                else:
-                    z = z.get_proximo()
-                    q = q.get_proximo()
-            p = p.get_proximo()
-        return self.printar_all()'''
