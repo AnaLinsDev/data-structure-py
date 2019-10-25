@@ -55,8 +55,8 @@ class Lista:
         else:
             ordem = False
             p = self._head
+            q = p.get_proximo()
             while not ordem:
-                q = p.get_proximo()
                 ordem = True
                 while q.get_proximo() != None: #Se o get proximo for None O whuile de cima será True.
                     if p.get_dado().get_ano() > q.get_dado().get_ano():
@@ -79,12 +79,21 @@ class Lista:
             print(p.get_dado().get_filmeeano())
             p = p.get_proximo()
 
-mov0 = Dadu('filme0', 2000)
+mov0 = Dadu('filme0', 1111)
 no0 = mov0
-mov2 = Dadu('filme2', 2005)
-no1 = mov2
-mov1 = Dadu('filme1', 2001)
-no2 = mov1
+mov1 = Dadu('filme1', 1000)
+no1 = mov1
+mov2 = Dadu('filme2', 2222)
+no2 = mov2
+mov3 = Dadu('filme3', 3333)
+no3 = mov3
+mov4 = Dadu('filme4', 4444)
+no4 = mov4
 lista =Lista()
+lista.insert(0, no1)
+lista.insert(1, no0)
+lista.insert(2, no4)
+lista.insert(3, no2)
+lista.insert(4, no3)
 lista.ordenar()
 lista.printar_all()
