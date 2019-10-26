@@ -23,7 +23,7 @@ class Lista:
                 p = p.get_proximo()
         return p.get_dado().get_ano()
     def isEmpty(self): #Vazia
-        if self._head == None:
+        if self.length() == 0:
             return True
         else: return False
     def insert(self, index, elem): #Inserir
@@ -42,21 +42,26 @@ class Lista:
                 no.set_proximo(q.get_proximo())
                 q.set_proximo(no)
     def remove(self,index): #Remover um item no indice
-        if self.length() == 1 :
-            self._head.set_dado(None)
-            print('Lista vazia')
         if index == 0:
-            self._head = self._head.get_proximo()
-        if index > self.length():
-            print ( ' indice invalido ')
+            p = self._head
+            if p != None:
+                self._head = self._head.get_proximo()
+            else: 
+                print(' A lista ja está vazia !')
         else:
             p = self._head
-            q = self._head.get_proximo()
-            for i in range(index - 1):
-                q = q.get_proximo()
-                p = p.get_proximo()
-            p.set_proximo(q.get_proximo())
-            q.set_proximo(p)
+            if index > self.length():
+                print ( ' indice invalido ')
+            elif p != None:
+                q = self._head.get_proximo()
+                for i in range(index - 1):
+                    q = q.get_proximo()
+                    p = p.get_proximo()
+                if q != None:
+                    p.set_proximo(q.get_proximo())
+                    q.set_proximo(p)
+            else:
+                print(' A lista ja está vazia !')
     def ordenar(self):
         ordem = False
         while not ordem:
@@ -71,13 +76,13 @@ class Lista:
                     q.set_dado(aux)
                 p = q
                 q = q.get_proximo()
-
     def length(self):
         p =self._head
         count = 0
-        while p.get_proximo() != None:
-            p =p.get_proximo()
-            count+=1
+        if p != None:
+            while p.get_proximo() != None :
+                p =p.get_proximo()
+                count+=1
         return count
     def printar_all(self):
         p = self._head
