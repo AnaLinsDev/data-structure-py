@@ -1,5 +1,3 @@
-
-
 from Node import No
 from Cdados import Dadu
 import time
@@ -42,26 +40,24 @@ class Lista:
                 no.set_proximo(q.get_proximo())
                 q.set_proximo(no)
     def remove(self,index): #Remover um item no indice
-        if index == 0:
+        p = self._head
+        if self.length() == 0:
+            print(' A lista ja está vazia ')
+        elif index == 0:
             p = self._head
             if p != None:
                 self._head = self._head.get_proximo()
-            else: 
-                print(' A lista ja está vazia !')
-        else:
-            p = self._head
-            if index > self.length():
-                print ( ' indice invalido ')
-            elif p != None:
-                q = self._head.get_proximo()
-                for i in range(index - 1):
-                    q = q.get_proximo()
-                    p = p.get_proximo()
-                if q != None:
-                    p.set_proximo(q.get_proximo())
-                    q.set_proximo(p)
-            else:
-                print(' A lista ja está vazia !')
+        elif index > self.length():
+            print ( ' indice invalido ')
+        elif p != None:
+            q = self._head.get_proximo()
+            for i in range(index - 1):
+                q = q.get_proximo()
+                p = p.get_proximo()
+            if q != None:
+                p.set_proximo(q.get_proximo())
+                q.set_proximo(p)
+                
     def ordenar(self):
         ordem = False
         while not ordem:
@@ -147,7 +143,6 @@ _________________________________
         lis.remove(i)
         print("...")
         time.sleep(1)
-        print("O elemento da fila foi removido!")
         r = input(""" 
 _________________________________
 |  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
