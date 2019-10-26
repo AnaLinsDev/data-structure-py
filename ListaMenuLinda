@@ -1,0 +1,276 @@
+from Node import No
+from Cdados import Dadu
+import time
+
+class Lista:
+    def __init__(self, head = None):  #Construtor
+        self._head = head
+        self._size = 0
+
+    def mostrar(self, index):  #Mostra de acordo com o index
+        p = self._head
+        for i in range(index):
+            if p.get_proximo() != None:
+                p = p.get_proximo()
+        return print(p.get_dado().get_filmeeano())
+    def mostrarano(self, index):  #Mostra de acordo com o index
+        p = self._head
+        a = self
+        for i in range(index):
+            if p.get_proximo() != None:
+                p = p.get_proximo()
+        return p.get_dado().get_ano()
+    def isEmpty(self): #Vazia
+        if self._head == None:
+            return True
+        else: return False
+    def insert(self, index, elem): #Inserir
+            if self._head == None:
+                no = No(elem)
+                no.set_proximo(None)
+                self._head = no
+            if index > self.length():
+                print ( ' \033[1;31mindice invalido \033[m ')
+            else:
+                no = No(elem)
+                q = self._head
+                for i in range(index -1):
+                    if q.get_proximo() != None:
+                        q = q.get_proximo()
+                no.set_proximo(q.get_proximo())
+                q.set_proximo(no)
+    def remove(self,index): #Remover um item no indice
+        if self._head == None:
+            print("\033[1;31mNão pode remover!\033m")
+        if self.length() == 1 :
+            self._head.set_dado(None)
+            print('\033[1;31mLista vazia\033m"')
+        if index == 0:
+            self._head = self._head.get_proximo()
+        if index > self.length():
+            print ( ' \033[1;31mindice invalido \033[m')
+        else:
+            p = self._head
+            q = self._head.get_proximo()
+            for i in range(index - 1):
+                q = q.get_proximo()
+                p = p.get_proximo()
+            p.set_proximo(q.get_proximo())
+            q.set_proximo(p)
+    def ordenar(self):
+        if self._head == None:
+            print("\033[1;31mNão é possível ordenar!\033[m")
+        elif self._head.get_proximo() == None:
+            print("\033[1;31mNão é possível ordenar!\033[m")
+        ordem = False
+        while not ordem:
+            ordem = True
+            p = self._head
+            q = p.get_proximo()
+            while q.get_proximo() != None:
+                if p.get_dado().get_ano() > q.get_dado().get_ano():
+                    ordem = False
+                    aux = p.get_dado()
+                    p.set_dado(q.get_dado())
+                    q.set_dado(aux)
+                p = q
+                q = q.get_proximo()
+
+    def length(self):
+        p =self._head
+        count = 0
+        while p.get_proximo() != None:
+            p =p.get_proximo()
+            count+=1
+        return count
+    def printar_all(self):
+        p = self._head
+        i = 0
+        while(p.get_proximo() != None):
+            print(f' \033[1;94mpos: {i} -> {p.get_dado().get_filmeeano()}\033[m')
+            i +=1
+            p = p.get_proximo()
+
+print("\033[1;94mIFPB - Instituto Federal da Paraiba \033[m")
+print("\033[1;98m=-\033[m"*17)
+lis = Lista()
+r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
+while (r != '0') :
+    if r == "1":
+        a = input("Qual FILME você quer adicionar: ")
+        b = input("Qual ANO você quer adicionar: ")
+        i = int(input("Qual a posição que deseja adicionar ?")) 
+        lis.insert(i, Dadu(a,b))
+        print("...")
+        time.sleep(1)
+        print("\033[1;32mO elementos foi adicionado!\033[m")
+        time.sleep(0.5)
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
+    elif r == "2":
+        print("...")
+        time.sleep(1)
+        i = int(input("De qual indice deseja remover?"))
+        lis.remove(i)
+        print("...")
+        time.sleep(1)
+        print("\033[1;32mO elemento da fila foi removido!\033[m")
+        r = input("""
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
+    elif r =="3":
+        print(lis.isEmpty())
+        time.sleep(1)
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+ """)
+    elif r == "4":
+        print("O tamanho da lista é: ",lis.length())
+        time.sleep(1)
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+ 🔴 Digite sua opção: 
+ """)
+    elif r == "5":
+        lis.printar_all()
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+ """)
+    elif r == "6":
+        i = int(input('Qual indice do elemento que deseja ver ?'))
+        lis.mostrar(i)
+        time.sleep(1)
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+ """)
+    elif r == "7":
+        lis.ordenar()
+        print("...")
+        time.sleep(1)
+        print('\033[1;32mA lista foi ordenada com sucesso\033[m !')
+        time.sleep(1)
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+ """)
