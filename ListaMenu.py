@@ -96,15 +96,22 @@ print("IFPB - Instituto Federal da Paraiba ")
 print("-=-"*20)
 lis = Lista()
 r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção: 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
 """)
 while (r != '0') :
     if r == "1":
@@ -116,15 +123,22 @@ while (r != '0') :
         print("...")
         time.sleep(1)
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
 """)
     elif r == "2":
         print("...")
@@ -134,91 +148,145 @@ Digite sua opção:
         print("...")
         time.sleep(1)
         print("O elemento da fila foi removido!")
-        r = input("""
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:     
+        r = input(""" 
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
 """)
     elif r =="3":
         print(lis.isEmpty())
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção: """)
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
     elif r == "4":
         print("O tamanho da lista é: ",lis.length())
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:""")
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
     elif r == "5":
         lis.printar_all()
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:""")
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
     elif r == "6":
         i = int(input('Qual indice do elemento que deseja ver ?'))
         lis.mostrar(i)
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:""")
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
     elif r == "7":
         lis.ordenar()
         print("...")
         time.sleep(1)
         print('A lista foi ordenada com sucesso !')
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:""")
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
+
+🔴 Digite sua opção: 
+""")
     else:
         print('Opção invalida')
         r = input(""" 
-0) sair do Menu
-1) adicionar
-2) remover
-3) Mostrar se está vazia
-4) Mostrar tamanho da Lista
-5) Mostrar tudo
-6) Mostrar por indice
-7) Deixar a lista ordenada
-Digite sua opção:""")
+_________________________________
+|  ▒█▀▄▀█ ▒█▀▀▀ ▒█▄░▒█ ▒█░▒█    |
+|  ▒█▒█▒█ ▒█▀▀▀ ▒█▒█▒█ ▒█░▒█    |
+|  ▒█░░▒█ ▒█▄▄▄ ▒█░░▀█ ░▀▄▄▀    |   
+|_______________________________|
+| 0) sair do Menu               |
+| 1) adicionar                  |
+| 2) remover                    |
+| 3) Mostrar se está vazia      |
+| 4) Mostrar tamanho da Lista   |
+| 5) Mostrar tudo               |
+| 6) Mostrar por indice         |
+| 7) Deixar a lista ordenada    |
+|_______________________________|
 
+🔴 Digite sua opção: 
+""")
