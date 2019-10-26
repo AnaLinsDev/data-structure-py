@@ -109,6 +109,7 @@ Digite sua opção:
 while (r != '0') :
     if r == "1":
         a = input("Qual FILME você quer adicionar: ")
+
         b = int(input("Qual ANO você quer adicionar: "))
         i = int(input("Qual a posição que deseja adicionar ?")) 
         lis.insert(i, Dadu(a,b))
@@ -198,6 +199,18 @@ Digite sua opção:""")
         print("...")
         time.sleep(1)
         print('A lista foi ordenada com sucesso !')
+        r = input(""" 
+0) sair do Menu
+1) adicionar
+2) remover
+3) Mostrar se está vazia
+4) Mostrar tamanho da Lista
+5) Mostrar tudo
+6) Mostrar por indice
+7) Deixar a lista ordenada
+Digite sua opção:""")
+    else:
+        print('Opção invalida')
         r = input(""" 
 0) sair do Menu
 1) adicionar
