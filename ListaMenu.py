@@ -1,4 +1,4 @@
-  
+
 from Node import No
 from Cdados import Dadu
 import time
@@ -13,20 +13,19 @@ class Lista:
         for i in range(index):
             if p.get_proximo() != None:
                 p = p.get_proximo()
-        return print(p.get_dado().get_dado().get_filmeeano())
+        print(p.get_dado().get_filmeeano())
     def isEmpty(self): #Vazia
         if self._head == None:
             print(True)
         else: print(False)
     def insert(self, index, elem): #Inserir
+            no = elem 
             if self._head == None:
-                no = No(elem)
                 no.set_proximo(None)
                 self._head = no
             if index > self.length():
                 print ( ' indice invalido ')
             else:
-                no = No(elem)
                 q = self._head
                 for i in range(index -1):
                     if q.get_proximo() != None:
@@ -39,7 +38,7 @@ class Lista:
             print('Lista vazia')
         if index == 0:
             self._head = self._head.get_proximo()
-        if index > self.size():
+        if index > self.length():
             print ( ' indice invalido ')
         else:
             p = self._head
@@ -49,42 +48,20 @@ class Lista:
                 p = p.get_proximo()
             p.set_proximo(q.get_proximo())
             q.set_proximo(p)
-
-    def printar_all(self):
-        p = self._head
-        while(p != None):
-            print(p.get_dado().get_dado().get_filmeeano())
-            p = p.get_proximo()
-    def show(self, index):
-        p = self._head
-        for i in range(index):
-            p = p.get_proximo()
-        return p.get_dado().get_dado().get_filmeeano()
-    def ordenar(self,param):
-        if (param == "+"):     #Crescente
-            lis =[]
+    def ordenar(self):
+        ordem = False
+        while not ordem:
+            ordem = True
             p = self._head
-            i = 0
-            while p!= None:
-                if (self.show(i).get_dado().get_ano() not in lis):
-                    lis.append(self.show(i).get_dado().get_ano())
-                p = p.get_proximo()
-                i += 1
-            lis.sort()
-            print(lis)
-        elif (param == "-"):    #Decrescente
-            lis = []
-            p = self._head
-            i = 0
-            while p.get_proximo() != None:
-                if (self.show(i).get_dado().get_ano() not in lis):
-                    lis.append(self.show(i).get_dado().get_ano())
-                p = p.get_proximo()
-                i += 1
-            lis.sort(reverse=True)
-            print(lis)
-        else:
-            print("Parâmetro inválido!")
+            q = p.get_proximo()
+            while q.get_proximo() != None:
+                if p.get_dado().get_ano() > q.get_dado().get_ano():
+                    ordem = False
+                    aux = p.get_dado()
+                    p.set_dado(q.get_dado())
+                    q.set_dado(aux)
+                p = q
+                q = q.get_proximo()
     def length(self):
         p =self._head
         count = 0
@@ -92,6 +69,12 @@ class Lista:
             p =p.get_proximo()
             count+=1
         return count
+    def printar_all(self):
+        p = self._head
+        while(p.get_proximo() != None):
+            print(p.get_dado().get_filmeeano())
+            p = p.get_proximo()
+
 print("IFPB - Instituto Federal da Paraiba ")
 print("-=-"*20)
 lis = Lista()
@@ -100,9 +83,10 @@ r = input("""
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção: 
 """)
 while (r != '0') :
@@ -112,86 +96,97 @@ while (r != '0') :
         i = int(input("Qual a posição que deseja adicionar ?")) 
         lis.insert(i, No(Dadu(a,b)))
         print("...")
-        time.sleep(1)
-        print("...")
-        time.sleep(1)
-        print("O elemento foi adicionado com sucesso!")
-        time.sleep(1)
         r = input(""" 
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção:
 """)
     elif r == "2":
         print("...")
         time.sleep(1)
-        i = input("De qual indice deseja remover?")
+        i = int(input("De qual indice deseja remover?"))
         lis.remove(i)
         print("O elemento da fila foi removido!")
-        time.sleep(1)
         r = input("""
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção:     
 """)
     elif r =="3":
         lis.isEmpty()
-        time.sleep(1)
         r = input(""" 
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção: """)
     elif r == "4":
-        print("O tamanho da pilha é: ",lis.length())
-        time.sleep(1)
+        print("O tamanho da lista é: ",lis.length())
         r = input(""" 
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção:""")
     elif r == "5":
-        print(lis.printar_all())
-        time.sleep(1)
+        lis.printar_all()
         r = input(""" 
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção:""")
     elif r == "6":
         i = int(input('Qual indice do elemento que deseja ver ?'))
-        print(f'no indice {i}, o elemento é {lis.show(i)}')
+        lis.mostrar(i)
         r = input(""" 
 0) sair do Menu
 1) adicionar
 2) remover
 3) Mostrar se está vazia
-4) Mostrar tamanho da Fila
+4) Mostrar tamanho da Lista
 5) Mostrar tudo
 6) Mostrar por indice
+7) Deixar a lista ordenada
 Digite sua opção:""")
+    elif r == "7":
+        lis.ordenar()
+        r = input(""" 
+0) sair do Menu
+1) adicionar
+2) remover
+3) Mostrar se está vazia
+4) Mostrar tamanho da Lista
+5) Mostrar tudo
+6) Mostrar por indice
+7) Deixar a lista ordenada
+Digite sua opção:""")
+
+
 
 
 
