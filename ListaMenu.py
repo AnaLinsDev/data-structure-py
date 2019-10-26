@@ -109,7 +109,7 @@ Digite sua opção:
 while (r != '0') :
     if r == "1":
         a = input("Qual FILME você quer adicionar: ")
-        b = input("Qual ANO você quer adicionar: ")
+        b = int(input("Qual ANO você quer adicionar: "))
         i = int(input("Qual a posição que deseja adicionar ?")) 
         lis.insert(i, Dadu(a,b))
         print("...")
