@@ -1,4 +1,4 @@
-
+# ta td dando errado, to tentando consertar k
 from Node import No
 from Cdados import Dadu
 import time
