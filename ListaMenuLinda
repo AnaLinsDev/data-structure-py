@@ -41,10 +41,10 @@ class Lista:
                 q.set_proximo(no)
     def remove(self,index): #Remover um item no indice
         if self._head == None:
-            print("\033[1;31mNão pode remover!\033m")
+            print("\033[1;31mNão pode remover!\033[m")
         if self.length() == 1 :
             self._head.set_dado(None)
-            print('\033[1;31mLista vazia\033m"')
+            print('\033[1;31mLista vazia\033[m"')
         if index == 0:
             self._head = self._head.get_proximo()
         if index > self.length():
