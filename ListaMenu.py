@@ -1,4 +1,5 @@
-# ta td dando errado, to tentando consertar k
+
+
 from Node import No
 from Cdados import Dadu
 import time
@@ -13,19 +14,27 @@ class Lista:
         for i in range(index):
             if p.get_proximo() != None:
                 p = p.get_proximo()
-        print(p.get_dado().get_filmeeano())
+        return print(p.get_dado().get_filmeeano())
+    def mostrarano(self, index):  #Mostra de acordo com o index
+        p = self._head
+        a = self
+        for i in range(index):
+            if p.get_proximo() != None:
+                p = p.get_proximo()
+        return p.get_dado().get_ano()
     def isEmpty(self): #Vazia
         if self._head == None:
-            print(True)
-        else: print(False)
+            return True
+        else: return False
     def insert(self, index, elem): #Inserir
-            no = elem 
             if self._head == None:
+                no = No(elem)
                 no.set_proximo(None)
                 self._head = no
             if index > self.length():
                 print ( ' indice invalido ')
             else:
+                no = No(elem)
                 q = self._head
                 for i in range(index -1):
                     if q.get_proximo() != None:
@@ -62,6 +71,7 @@ class Lista:
                     q.set_dado(aux)
                 p = q
                 q = q.get_proximo()
+
     def length(self):
         p =self._head
         count = 0
@@ -71,8 +81,10 @@ class Lista:
         return count
     def printar_all(self):
         p = self._head
+        i = 0
         while(p.get_proximo() != None):
-            print(p.get_dado().get_filmeeano())
+            print(f' pos: {i} -> {p.get_dado().get_filmeeano()}')
+            i +=1
             p = p.get_proximo()
 
 print("IFPB - Instituto Federal da Paraiba ")
@@ -94,8 +106,9 @@ while (r != '0') :
         a = input("Qual FILME você quer adicionar: ")
         b = input("Qual ANO você quer adicionar: ")
         i = int(input("Qual a posição que deseja adicionar ?")) 
-        lis.insert(i, No(Dadu(a,b)))
+        lis.insert(i, Dadu(a,b))
         print("...")
+        time.sleep(1)
         r = input(""" 
 0) sair do Menu
 1) adicionar
@@ -112,6 +125,8 @@ Digite sua opção:
         time.sleep(1)
         i = int(input("De qual indice deseja remover?"))
         lis.remove(i)
+        print("...")
+        time.sleep(1)
         print("O elemento da fila foi removido!")
         r = input("""
 0) sair do Menu
@@ -125,7 +140,7 @@ Digite sua opção:
 Digite sua opção:     
 """)
     elif r =="3":
-        lis.isEmpty()
+        print(lis.isEmpty())
         r = input(""" 
 0) sair do Menu
 1) adicionar
@@ -175,6 +190,9 @@ Digite sua opção:""")
 Digite sua opção:""")
     elif r == "7":
         lis.ordenar()
+        print("...")
+        time.sleep(1)
+        print('A lista foi ordenada com sucesso !')
         r = input(""" 
 0) sair do Menu
 1) adicionar
@@ -185,8 +203,4 @@ Digite sua opção:""")
 6) Mostrar por indice
 7) Deixar a lista ordenada
 Digite sua opção:""")
-
-
-
-
 
