@@ -10,9 +10,9 @@ class Lista:
     def mostrar(self, index):  #Mostra de acordo com o index
         p = self._head
         if p == None:
-            print(' Lista Vazia ')
+            print('\033[1;31mLista vazia\033[m')
         elif index > self.length()-1:
-            print(' Indice invalido')
+            print ( ' \033[1;31mindice invalido \033[m ')
         elif index < self.length():
             for i in range(index):
                 if p.get_proximo() != None:
@@ -59,7 +59,7 @@ class Lista:
             p = self._head
             if p != None:
                 self._head = self._head.get_proximo()
-        elif index > self.length():
+        elif index >= self.length():
             print ( ' \033[1;31mindice invalido \033[m ')
         elif p != None:
             q = self._head.get_proximo()
