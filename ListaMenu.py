@@ -9,10 +9,18 @@ class Lista:
 
     def mostrar(self, index):  #Mostra de acordo com o index
         p = self._head
-        for i in range(index):
-            if p.get_proximo() != None:
-                p = p.get_proximo()
-        return print(p.get_dado().get_filmeeano())
+        if p == None:
+            print(' Lista Vazia ')
+        elif index > self.length()-1:
+            print(' Indice invalido')
+        elif index < self.length():
+            for i in range(index):
+                if p.get_proximo() != None:
+                    p = p.get_proximo()
+            print(p.get_dado().get_filmeeano())
+
+
+
     def mostrarano(self, index):  #Mostra de acordo com o index
         p = self._head
         a = self
@@ -87,10 +95,13 @@ class Lista:
     def printar_all(self):
         p = self._head
         i = 0
-        while(p.get_proximo() != None):
-            print(f' pos: {i} -> {p.get_dado().get_filmeeano()}')
-            i +=1
-            p = p.get_proximo()
+        if p == None:
+            print(' Lista Vazia')
+        elif p != None:
+            while(p.get_proximo() != None):
+                print(f' pos: {i} -> {p.get_dado().get_filmeeano()}')
+                i +=1
+                p = p.get_proximo()
 
 print("IFPB - Instituto Federal da Paraiba ")
 print("-=-"*20)
@@ -110,7 +121,6 @@ r = input("""
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
 while (r != '0') :
@@ -137,7 +147,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "2":
@@ -162,7 +171,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r =="3":
@@ -182,7 +190,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "4":
@@ -202,7 +209,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "5":
@@ -222,7 +228,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "6":
@@ -243,7 +248,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "7":
@@ -266,7 +270,6 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     else:
@@ -286,6 +289,5 @@ while (r != '0') :
 \033[1;34m|\033[m  \033[1;36m6)\033[m Mostrar por indice         \033[1;34m|\033[m 
 \033[1;34m|\033[m  \033[1;36m7)\033[m Deixar a lista ordenada    \033[1;34m|\033[m 
 \033[1;34m|________________________________|\033[m 
-
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
