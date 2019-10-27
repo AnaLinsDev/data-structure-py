@@ -228,7 +228,6 @@ while (r != '0') :
 \033[1;34m|________________________________|\033[m 
 
 \033[1;31m🔴\033[m Digite sua opção: 
-🔴 Digite sua opção: 
  """)
     elif r == "6":
         i = int(input('Qual \033[1;33mÍNDICE\033[m do elemento que deseja ver ?'))
