@@ -2,56 +2,59 @@ from Node import No
 from Cdados import Dadu
 import time
 
+
 class Lista:
-    def __init__(self, head = None):  #Construtor
+    def __init__(self, head=None):  # Construtor
         self._head = head
         self._size = 0
 
-    def mostrar(self, index):  #Mostra de acordo com o index
+    def mostrar(self, index):  # Mostra de acordo com o index
         p = self._head
         if p == None:
             print('\033[1;31mLista vazia\033[m')
-        elif index > self.length()-1:
-            print ( ' \033[1;31mindice invalido \033[m ')
+        elif index > self.length() - 1:
+            print(' \033[1;31mindice invalido \033[m ')
         elif index < self.length():
             for i in range(index):
                 if p.get_proximo() != None:
                     p = p.get_proximo()
             print(p.get_dado().get_filmeeano())
 
-
-
-    def mostrarano(self, index):  #Mostra de acordo com o index
+    def mostrarano(self, index):  # Mostra de acordo com o index
         p = self._head
         a = self
         for i in range(index):
             if p.get_proximo() != None:
                 p = p.get_proximo()
         return p.get_dado().get_ano()
-    def isEmpty(self): #Vazia
+
+    def isEmpty(self):  # Vazia
         if self.length() == 0:
             return True
-        else: return False
-    def insert(self, index, elem): #Inserir
-            if self._head == None:
-                no = No(elem)
-                no.set_proximo(None)
-                self._head = no
-            if index > self.length():
-                print ( ' \033[1;31mindice invalido \033[m ')
-            if index == 0:
-                no = No(elem)
-                no.set_proximo(self._head)
-                self._head = no
-            else:
-                no = No(elem)
-                q = self._head
-                for i in range(index -1):
-                    if q.get_proximo() != None:
-                        q = q.get_proximo()
-                no.set_proximo(q.get_proximo())
-                q.set_proximo(no)
-    def remove(self,index): #Remover um item no indice
+        else:
+            return False
+
+    def insert(self, index, elem):  # Inserir
+        if self._head == None:
+            no = No(elem)
+            no.set_proximo(None)
+            self._head = no
+        if index > self.length():
+            print(' \033[1;31mindice invalido \033[m ')
+        if index == 0:
+            no = No(elem)
+            no.set_proximo(self._head)
+            self._head = no
+        else:
+            no = No(elem)
+            q = self._head
+            for i in range(index - 1):
+                if q.get_proximo() != None:
+                    q = q.get_proximo()
+            no.set_proximo(q.get_proximo())
+            q.set_proximo(no)
+
+    def remove(self, index):  # Remover um item no indice
         p = self._head
         if self.length() == 0:
             print('\033[1;31mLista vazia\033[m')
@@ -60,7 +63,7 @@ class Lista:
             if p != None:
                 self._head = self._head.get_proximo()
         elif index >= self.length():
-            print ( ' \033[1;31mindice invalido \033[m ')
+            print(' \033[1;31mindice invalido \033[m ')
         elif p != None:
             q = self._head.get_proximo()
             for i in range(index - 1):
@@ -69,7 +72,7 @@ class Lista:
             if q != None:
                 p.set_proximo(q.get_proximo())
                 q.set_proximo(p)
-                
+
     def ordenar(self):
         if self.length() == 0:
             print('\033[1;31mLista vazia\033[m')
@@ -87,29 +90,32 @@ class Lista:
                         q.set_dado(aux)
                     p = q
                     q = q.get_proximo()
+
     def length(self):
-        p =self._head
+        p = self._head
         count = 0
         if p != None:
-            while p.get_proximo() != None :
-                p =p.get_proximo()
-                count+=1
+            while p.get_proximo() != None:
+                p = p.get_proximo()
+                count += 1
         return count
+
     def printar_all(self):
         p = self._head
         i = 0
         if p == None:
             print("\033[1;31mNão pode remover!\033[m")
         if p != None:
-            while(p.get_proximo() != None):
-                print(f' pos: {i} -> {p.get_dado().get_filmeeano()}')
-                i +=1
+            while (p.get_proximo() != None):
+                print(f' \033[1;94mpos\033[m: {i} -> {p.get_dado().get_filmeeano()}')
+                i += 1
                 p = p.get_proximo()
         if self.length() == 0:
             print('\033[1;31mLista vazia\033[m')
 
+
 print("\033[31mI\033[m\033[32mFPB\033[m - \033[1;94mInstituto Federal da Paraiba \033[m")
-print("\033[1;36m=-=\033[m"*12)
+print("\033[1;36m=-=\033[m" * 12)
 lis = Lista()
 r = input(""" 
 \033[1;34m ________________________________\033[m
@@ -128,12 +134,12 @@ r = input("""
 \033[1;34m|________________________________|\033[m 
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
-while (r != '0') :
+while (r != '0'):
     if r == "1":
-        a = input("Qual FILME você quer adicionar: ")
-        b = int(input("Qual ANO você quer adicionar: "))
-        i = int(input("Qual a posição que deseja adicionar ?")) 
-        lis.insert(i, Dadu(a,b))
+        a = input("Qual \033[1;95mFILME\033[m você quer adicionar: ")
+        b = int(input("Qual \033[1;96mANO\033[m você quer adicionar: "))
+        i = int(input("Qual a posição que deseja adicionar ?"))
+        lis.insert(i, Dadu(a, b))
         print("...")
         time.sleep(1)
         r = input(""" 
@@ -156,7 +162,7 @@ while (r != '0') :
     elif r == "2":
         print("...")
         time.sleep(1)
-        i = int(input("De qual indice deseja remover?"))
+        i = int(input("De qual \033[1;33mINDICE\033[m deseja remover?"))
         lis.remove(i)
         print("...")
         time.sleep(1)
@@ -177,8 +183,9 @@ while (r != '0') :
 \033[1;34m|________________________________|\033[m 
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
-    elif r =="3":
+    elif r == "3":
         print(lis.isEmpty())
+        time.sleep(1)
         r = input(""" 
 \033[1;34m ________________________________\033[m
 \033[1;34m|\033[m  \033[1;36m▒█░░░ ▀█▀ ▒█▀▀▀█ ▀▀█▀▀ ░█▀▀█ \033[m \033[1;34m|\033[m    
@@ -197,7 +204,8 @@ while (r != '0') :
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "4":
-        print("O tamanho da lista é: ",lis.length())
+        print("O tamanho da lista é: ", lis.length())
+        time.sleep(1)
         r = input(""" 
 \033[1;34m ________________________________\033[m
 \033[1;34m|\033[m  \033[1;36m▒█░░░ ▀█▀ ▒█▀▀▀█ ▀▀█▀▀ ░█▀▀█ \033[m \033[1;34m|\033[m    
@@ -217,6 +225,7 @@ while (r != '0') :
 """)
     elif r == "5":
         lis.printar_all()
+        time.sleep(1)
         r = input(""" 
 \033[1;34m ________________________________\033[m
 \033[1;34m|\033[m  \033[1;36m▒█░░░ ▀█▀ ▒█▀▀▀█ ▀▀█▀▀ ░█▀▀█ \033[m \033[1;34m|\033[m    
@@ -235,8 +244,9 @@ while (r != '0') :
 \033[1;31m🔴\033[m Digite sua opção: 
 """)
     elif r == "6":
-        i = int(input('Qual indice do elemento que deseja ver ?'))
+        i = int(input('Qual \033[1;33mINDICE\033[m do elemento que deseja ver ?'))
         lis.mostrar(i)
+        time.sleep(1)
         r = input(""" 
 \033[1;34m ________________________________\033[m
 \033[1;34m|\033[m  \033[1;36m▒█░░░ ▀█▀ ▒█▀▀▀█ ▀▀█▀▀ ░█▀▀█ \033[m \033[1;34m|\033[m    
