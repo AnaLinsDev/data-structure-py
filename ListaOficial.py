@@ -71,19 +71,22 @@ class Lista:
                 q.set_proximo(p)
                 
     def ordenar(self):
-        ordem = False
-        while not ordem:
-            ordem = True
-            p = self._head
-            q = p.get_proximo()
-            while q.get_proximo() != None:
-                if p.get_dado().get_ano() > q.get_dado().get_ano():
-                    ordem = False
-                    aux = p.get_dado()
-                    p.set_dado(q.get_dado())
-                    q.set_dado(aux)
-                p = q
-                q = q.get_proximo()
+        if self.length() == 0:
+            print('\033[1;31mLista vazia\033[m')
+        else:
+            ordem = False
+            while not ordem:
+                ordem = True
+                p = self._head
+                q = p.get_proximo()
+                while q.get_proximo() != None:
+                    if p.get_dado().get_ano() > q.get_dado().get_ano():
+                        ordem = False
+                        aux = p.get_dado()
+                        p.set_dado(q.get_dado())
+                        q.set_dado(aux)
+                    p = q
+                    q = q.get_proximo()
     def length(self):
         p =self._head
         count = 0
@@ -128,7 +131,6 @@ r = input("""
 while (r != '0') :
     if r == "1":
         a = input("Qual FILME você quer adicionar: ")
-
         b = int(input("Qual ANO você quer adicionar: "))
         i = int(input("Qual a posição que deseja adicionar ?")) 
         lis.insert(i, Dadu(a,b))
@@ -256,7 +258,6 @@ while (r != '0') :
         lis.ordenar()
         print("...")
         time.sleep(1)
-        print('A lista foi ordenada com sucesso !')
         r = input(""" 
 \033[1;34m ________________________________\033[m
 \033[1;34m|\033[m  \033[1;36m▒█░░░ ▀█▀ ▒█▀▀▀█ ▀▀█▀▀ ░█▀▀█ \033[m \033[1;34m|\033[m    
