@@ -7,6 +7,6 @@
 - Manipulação: inserção, remoção, tamanho, procura por id, ordenação simples ... 
 
 
-Alunas:
+<b>Alunas:</b>
 - `Ana Júlia`
 - `Yohanna`
