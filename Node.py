@@ -1,20 +1,20 @@
-from Cdados import Dadu 
+from Data import Data 
 
-class No:
-    def __init__(self, dado = Dadu(), proximo = None):
-        self._dado = dado
-        self._proximo = proximo
-    def get_dado(self):
-        return self._dado
-    def set_dado(self, novoDado):
-        self._dado = novoDado
-    def get_proximo(self):
-        return self._proximo
-    def set_proximo(self, outro):
-        self._proximo = outro
+class Node:
+    def __init__(self, data = Data(), next = None):
+        self._data = data
+        self._next = next
+    def get_data(self):
+        return self._data
+    def set_data(self, newdata):
+        self._data = newdata
+    def get_next(self):
+        return self._next
+    def set_next(self, n):
+        self._next = n
     def size(self):
-        return len(self._dado)
+        return len(self._data)
     def __str__(self):
-        return "{}".format(self._dado)
+        return "{}".format(self._data)
 
 
